@@ -23,25 +23,25 @@
           id="nav"
           class="d-flex align-items-center justify-content-around flex-wrap"
         >
-          <img style="width: 85px; height: 20px" src="k_travels2.webp" alt="" />
-          <img style="width: 85px; height: 20px" src="konga_pay.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/k_travels2.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/konga_pay.webp" alt="" />
           <img
             style="width: 85px; height: 20px"
-            src="new_konga_drinks.webp"
+            src="images/new_konga_drinks.webp"
             alt=""
           />
           <img
             style="width: 85px; height: 20px"
-            src="konga_health.webp"
+            src="images/konga_health.webp"
             alt=""
           />
-          <img style="width: 85px; height: 20px" src="k_express2.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/k_express2.webp" alt="" />
           <img
             style="width: 85px; height: 20px"
-            src="new_konga_groceries.webp"
+            src="images/new_konga_groceries.webp"
             alt=""
           />
-          <img style="width: 85px; height: 20px" src="kongaTV.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/kongaTV.webp" alt="" />
         </div>
       </div>
 
@@ -63,7 +63,7 @@
           <button class="d-flex align-items-center">
             <img
               style="width: 85px; height: 20px"
-              src="logo-alternate.webp"
+              src="images/logo-alternate.webp"
               alt=""
             />
           </button>
@@ -101,7 +101,7 @@
           <button class="button" id="konga">
             <img
               style="width: 110px; height: 45px"
-              src="62f8a0d88e07573b4d46735aa24f3f04.png"
+              src="images/62f8a0d88e07573b4d46735aa24f3f04.png"
               alt=""
             />
           </button>
@@ -147,7 +147,7 @@
                 style="color: white"
                 width="20"
               ></iconify-icon>
-              My cart <small> 0</small>
+              My cart <small class="theCart"> 0 </small>
             </p>
           </button>
         </div>
@@ -246,6 +246,25 @@
         >
       </div>
 
+
+      <div id="homeButtons" class="d-flex align-items-center w-100"> <button onclick="goHome()" class="home ms-5 me-2">Home > </button> <button style="font-weight: 600; color: #94004f;" onclick="seeAllItems()">See all items</button>  </div>
+
+      <div id="amazingDeals" class="align-items-start  d-flex flex-column ">
+        <h1 class="mt-2">Amazing Deals Online </h1>
+
+      </div>
+
+
+      <div id="seeAll" class="align-items-center justify-content-start  d-flex flex-column ">
+        <img width="95%" height="300px" class="rounded" style=" object-fit: contain;" src="images/Stove.jpg_H1ZMGqhNa.webp" alt="">
+
+        <div id="allItems" class="flex-row d-flex align-items-center w-100 justify-content-around flex-wrap mt-2 mb-2">
+
+        </div>
+
+
+      </div>
+
      
 
 
@@ -275,4 +294,30 @@
 
   const app = firebase.initializeApp(firebaseConfig);
 </script>
-<script src="index.js"></script>
+<script src="seemore.js"></script>
+<script src="all.js"></script>
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  let navBar = document.getElementById('nav')
+  let searchBar = document.getElementById('search-bar')
+  let shoppingLine = document.getElementById('shopping-line')
+window.addEventListener('scroll' , ()=> {  
+  
+
+  let windowHeight = window.scrollY
+
+   if(windowHeight > 100 ){
+          navBar.style.display = 'none'
+          searchBar.style.transition = '1s'
+          shoppingLine.style.transition = '1s'
+          searchBar.style.top = '0px'
+          shoppingLine.style.top = '60px'
+       } else if (windowHeight < 100 ){
+          navBar.style.display = 'flex'
+          searchBar.style.top = '40px'
+          shoppingLine.style.top = '100px'
+       }
+})  })
+</script>

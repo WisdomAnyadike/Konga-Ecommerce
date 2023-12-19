@@ -299,6 +299,11 @@
   background-color: white;
   align-items: center;
 }
+.data1{
+  transition: all 1s;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.068);
+}
 
 .deal2{
     width: 250px;
@@ -316,7 +321,7 @@
     margin-bottom: 10px;
 }
 
-.deal1:hover , .deal2:hover , .deal3:hover{
+.deal1:hover , .deal2:hover , .deal3:hover , .data1:hover{
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.462);
 }
 
@@ -349,6 +354,31 @@
   #text{
     width: 95%;
   }
+
+  #homeButtons{
+    margin-top: 150px;
+    font-size: 12px;
+
+  }
+#homeButtons button {
+  border: none;
+  background-color: #32b27b00;
+}
+
+.home:hover{
+font-weight: 600;
+color: #94004f;
+}
+
+#amazingDeals {
+  width: 95%;
+}
+
+#seeAll{
+  width: 98%;
+  background-color: whitesmoke;
+}
+
 
 
 @media (max-width: 1190px) {
@@ -390,6 +420,11 @@
   #shopping-buttons {
     margin-top: 200px;
   }
+
+  #homeButtons{
+    margin-top: 115px;
+  }
+
 }
 @media (max-width: 940px) {
   #shopping-button2 small {
@@ -426,6 +461,10 @@
 }
 
 @media (max-width: 767px) {
+  #homeButtons{
+    margin-top: 15px;
+  }
+
   #todays-deals h2,  #deals-header h4 , #todays-deals h{
 font-size: 18px;
   }

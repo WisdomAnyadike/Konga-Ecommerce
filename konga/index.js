@@ -67,3 +67,32 @@ displaySlide(sponsoredContent, sponsoredArr, "flex-column", 2, "sponsored");
 let recommendedArr = fetchedData.slice(17, 23);
 let recommendedContent = document.getElementById("recommended-content");
 displaySlide(recommendedContent, recommendedArr, "flex-row", 3, "recommended");
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  let navBar = document.getElementById('nav')
+  let searchBar = document.getElementById('search-bar')
+  let shoppingLine = document.getElementById('shopping-line')
+window.addEventListener('scroll' , ()=> {  
+  
+
+  let windowHeight = window.scrollY
+
+   if(windowHeight > 100 ){
+          navBar.style.display = 'none'
+          searchBar.style.transition = '1s'
+          shoppingLine.style.transition = '1s'
+          searchBar.style.top = '0px'
+          shoppingLine.style.top = '60px'
+       } else if (windowHeight < 100 ){
+          navBar.style.display = 'flex'
+          searchBar.style.top = '40px'
+          shoppingLine.style.top = '100px'
+       }
+})  })
+
+function seeAllItems(){
+  window.location.href = 'seemore.html'
+
+}
+

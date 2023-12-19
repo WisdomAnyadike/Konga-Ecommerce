@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="signup.css">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+   <main>
+    <div class="all">
+        <div class="wrap">
+            <div class="logo">
+                <img src="images/konga.png" alt="">
+            </div>
+
+            <div class="form">
+
+                <div class="login">
+                    <div class="login-login">
+
+                        <h2>Create An Account</h2>
+                        <hr>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div id="input">
+                    <div class="inwrap">
+                        <label for="firstName">
+                            <h6>First Name</h6>
+                            <input id="firstName" placeholder="Enter First Name" type="text">
+                        </label>
+
+                        <label for="lastName">
+                            <h6>Last Name</h6>
+                            <input id="lastName" placeholder="Enter Last Name" type="text">
+                        </label>
+
+                       <label for="email">
+                            <h6>Email Address</h6>
+                            <input id="email" placeholder="Enter Email Address" type="email">
+                        </label>
+
+                        <label for="phoneNumber">
+                            <h6>Phone Number</h6>
+                            <input id="phoneNumber" placeholder="Enter Phone Number" type="text">
+                        </label>
+
+                        <label  for="password">
+                            <h6>Password</h6>
+                            <input id="password"  placeholder="Enter password" type="password" name="z"  >
+                            
+                        </label>
+
+                        <button id="loginButton" onclick="createAccount()">Create An Account</button>
+                        
+                        <div class="pink">
+                        <span>By signing up you accept our 
+
+                            <a href="">terms and conditions <br>
+                                & privacy policy</a>
+
+                        </span>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+                <div id="account">
+                    <div class="div">
+                        <h6>Already have an account?</h6>
+                        <button id="account" onclick="goToLogin()">Login</button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+        
+
+    </div>
+
+
+    <div class="navbar">
+        
+            <button><iconify-icon icon="ic:outline-home" style="color: rgba(0, 0, 0, 0.692);" width="25"></iconify-icon> Home</button>
+            <button><iconify-icon icon="majesticons:tag-line" style="color: rgba(0, 0, 0, 0.692);" width="25" rotate="90deg" flip="vertical"></iconify-icon> Deals</button>
+            <button><iconify-icon icon="ion:cart-outline" style="color: rgba(0, 0, 0, 0.692);" width="25"></iconify-icon> Cart</button>
+            <button> <iconify-icon icon="gg:details-more" style="color: rgba(0, 0, 0, 0.692);" width="25" flip="horizontal"></iconify-icon>More</button>
+
+
+        
+
+    </div>
+
+
+   </main>
+
+</body>
+
+</html>
+<script >
+
+function goToLogin() {
+    window.location.href = 'login.html'
+    
+}
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC-hQG2BI6xAGm3kxsiSmex9jT4RNbCNJA",
+      authDomain: "konga-e4afd.firebaseapp.com",
+      projectId: "konga-e4afd",
+      storageBucket: "konga-e4afd.appspot.com",
+      messagingSenderId: "1027263106565",
+      appId: "1:1027263106565:web:f1cabbf6b52ad1f8b3166c",
+    };
+  
+    const app = firebase.initializeApp(firebaseConfig);
+    var provider = new firebase.auth.GoogleAuthProvider();
+  </script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+    <script>
+        let email = document.getElementById('email')
+        let password = document.getElementById('password')
+        let firstName = document.getElementById('firstName')
+        let lastName = document.getElementById('lastName')
+        let loginButton = document.getElementById('loginButton')
+function createAccount() {
+    loginButton.innerHTML = `<div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>`
+
+    firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    user.updateProfile({
+  displayName: firstName.value + '' + lastName.value ,
+}).then(() => {
+    loginButton.innerHTML = 'Login'
+alert('Account Successfully Created')
+window.location.href = 'login.html'
+
+}).catch((error) => {
+  alert(error)
+  loginButton.innerHTML = 'Login'
+});  
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    loginButton.innerHTML = 'Login'
+  });
+}
+
+
+
+    </script>

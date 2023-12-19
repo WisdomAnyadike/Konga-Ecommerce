@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "konga",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

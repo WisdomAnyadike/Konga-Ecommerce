@@ -9,7 +9,7 @@ let categoryText = document.getElementById('cartegoryText')
 let cartAddText = document.getElementById('cartAddText')
 
 function addToCart(event) {
-  cart.forEach((c) => {
+ 
     ++cartNum;
     localStorage.setItem("cartNo", cartNum);
     displayCartNumber() 
@@ -28,6 +28,7 @@ function addToCart(event) {
         return foundObj.price * this.itemQuantity;
       },
       itemAmount: foundObj.price,
+      itemBrand: foundObj.brand , 
     };
 
     cartAddText.innerHTML = `You've added ${foundObj.title} to Cart`
@@ -44,7 +45,7 @@ function addToCart(event) {
     cartArray.push(item);
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
     console.log(cartArray);
-  });
+
 }
 
 function displayCartNumber() {
@@ -68,6 +69,7 @@ console.log(fetchedData);
 
 function showProduct(event) {
   el = event.target;
+  
   console.log(el.id);
   let foundObj = fetchedData.find((obj) => {
     return el.id == obj.id;
@@ -103,7 +105,7 @@ let search = document.querySelectorAll(".searcher");
 console.log(search);
 
 let dropdownSearch = document.getElementById("drop");
-dropdownSearch.style.visibility = "hidden";
+dropdownSearch.style.display = "none";
 
 search.forEach((s) => {
   s.addEventListener("input", (event) => {
@@ -120,7 +122,7 @@ search.forEach((s) => {
       dropdownSearch.innerHTML = `this product does not exist`;
     } else if (s.value.length > 0) {
       dropdownSearch.innerHTML = "";
-      dropdownSearch.style.visibility = "visible";
+      dropdownSearch.style.display = "flex";
       searched.forEach((data) => {
         dropdownSearch.innerHTML += `<button id="${data.id}"  onclick="showProduct(event)" class="border border-success m-1 bg-light d-flex text-dark align-items-center justify-content-between  ;" style="height:40px; width:98%;" value='${data.price}'>
        
@@ -132,7 +134,7 @@ search.forEach((s) => {
         </button>`;
       });
     } else {
-      dropdownSearch.style.visibility = "hidden";
+      dropdownSearch.style.display = "none";
     }
   });
 });

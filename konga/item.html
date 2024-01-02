@@ -34,7 +34,7 @@
 
         <div id="navbar-2" class="align-items-center justify-content-between bg-light">
             <div id="nav-buttons" class="mb-1 d-flex align-items-center justify-content-around">
-                <button class="d-flex align-items-center">
+                <button onclick="goHome()" class="d-flex align-items-center">
                     <iconify-icon icon="mingcute:arrow-left-line" style="color: #000" width="25"></iconify-icon>
                 </button>
                 <button class="d-flex align-items-center">
@@ -45,7 +45,8 @@
                 <button class="d-flex align-items-center">
                     <iconify-icon icon="bi:shop" style="color: #000" width="22"></iconify-icon>
                 </button>
-                <button class="d-flex align-items-center">
+                <button onclick="goToCart()" class="d-flex align-items-center position-relative">
+                    <b class="position-fixed theCart bg-success text-light d-flex align-items-center justify-content-center"  style="width: 17px; height: 17px; top:0; right:2px; font-size: 12px; border-radius: 50%;"> </b>
                     <iconify-icon icon="ri:shopping-cart-line" style="color: #000" width="25"></iconify-icon>
                 </button>
             </div>
@@ -69,7 +70,7 @@
                         <iconify-icon icon="ion:search" width="20"></iconify-icon>
                     </button>
                     <div id="drop"
-                        class="d-flex rounded align-items-start justify-content-start flex-column bg-light shadow"
+                        class="rounded align-items-start justify-content-start flex-column bg-light shadow"
                         style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
 
                     </div>
@@ -150,12 +151,12 @@
         </div>
 
 
-        <div id="homeButtons" class="d-flex align-items-center w-100"> <button onclick="goHome()"
-                class="home ms-5 me-2">Home > </button> <button style="font-weight: 600; color: #94004f;"
+        <div id="homeButtons" class="d-flex align-items-center justify-content-start w-100 ps-2"> <button onclick="goHome()"
+                class="home ">Home > </button> <button class="ms-2" style="font-weight: 600; color: #94004f;"
                 onclick="seeAllItems()">see all items > </button> <button class="ms-2"
                 style="font-weight: 600; color: #94004f;" id="soldItem"> </button> </div>
 
-        <div id="oneItem" class="align-items-start w-100 ms-5 d-flex flex-column ">
+        <div id="oneItem" class="align-items-start w-100 ps-2  d-flex flex-column ">
             <h1 id="itemName" class="mt-2"> </h1>
 
         </div>
@@ -412,6 +413,7 @@
         let navBar = document.getElementById('nav')
         let searchBar = document.getElementById('search-bar')
         let shoppingLine = document.getElementById('shopping-line')
+        
         window.addEventListener('scroll', () => {
 
 

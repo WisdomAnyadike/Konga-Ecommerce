@@ -25,25 +25,25 @@
           id="nav"
           class="d-flex align-items-center justify-content-around flex-wrap"
         >
-          <img style="width: 85px; height: 15px" src="Images/k_travels2.webp" alt="" />
-          <img style="width: 85px; height: 15px" src="Images/konga_pay.webp" alt="" />
+          <img style="width: 85px; height: 15px" src="images/k_travels2.webp" alt="" />
+          <img style="width: 85px; height: 15px" src="images/konga_pay.webp" alt="" />
           <img
             style="width: 85px; height: 20px"
-            src="Images/new_konga_drinks.webp"
+            src="images/new_konga_drinks.webp"
             alt=""
           />
           <img
             style="width: 85px; height: 20px"
-            src="Images/konga_health.webp"
+            src="images/konga_health.webp"
             alt=""
           />
-          <img style="width: 85px; height: 20px" src="Images/k_express2.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/k_express2.webp" alt="" />
           <img
             style="width: 85px; height: 20px"
-            src="Images/new_konga_groceries.webp"
+            src="images/new_konga_groceries.webp"
             alt=""
           />
-          <img style="width: 85px; height: 20px" src="Images/kongaTV.webp" alt="" />
+          <img style="width: 85px; height: 20px" src="images/kongaTV.webp" alt="" />
         </div>
       </div>
 
@@ -55,7 +55,7 @@
           id="nav-buttons"
           class="mb-1 d-flex align-items-center justify-content-around"
         >
-          <button class="d-flex align-items-center">
+          <button onclick="goHome()" class="d-flex align-items-center">
             <iconify-icon
               icon="mingcute:arrow-left-line"
               style="color: #000"
@@ -65,7 +65,7 @@
           <button class="d-flex align-items-center">
             <img
               style="width: 75px; height: 20px"
-              src="Images/logo-alternate.webp"
+              src="images/logo-alternate.webp"
               alt=""
             />
           </button>
@@ -81,7 +81,8 @@
               width="22"
             ></iconify-icon>
           </button>
-          <button class="d-flex align-items-center">
+          <button onclick="goToCart()" class="d-flex align-items-center position-relative">
+            <b class="position-fixed theCart bg-success text-light d-flex align-items-center justify-content-center"  style="width: 17px; height: 17px; top:0; right:2px; font-size: 12px; border-radius: 50%;"> </b>
             <iconify-icon
               icon="ri:shopping-cart-line"
               style="color: #000"
@@ -119,7 +120,7 @@
             /><button>
               <iconify-icon icon="ion:search" width="20"></iconify-icon>
             </button>
-            <div id="drop" class="d-flex rounded align-items-start justify-content-start flex-column bg-light shadow" style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
+            <div id="drop" class="rounded align-items-start justify-content-start flex-column bg-light shadow" style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
     
             </div>
           </div>
@@ -156,67 +157,7 @@
         </div>
       </div>
 
-      <div
-        id="shopping-buttons"
-        
-      >
-        <div
-          id="shopping-button"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <iconify-icon
-            icon="system-uicons:circle-menu"
-            style="color: #626262"
-            width="20"
-          ></iconify-icon>
-          <small>Browse All</small>
-        </div>
-        <div
-          id="shopping-button"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <iconify-icon
-            icon="iconoir:shirt"
-            style="color: #626262"
-            width="20"
-          ></iconify-icon>
-          <small>Fashion</small>
-        </div>
-        <div
-          id="shopping-button"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <iconify-icon
-            icon="guidance:computer-room"
-            style="color: #626262"
-            width="20"
-          ></iconify-icon>
-          <small> Computers</small>
-        </div>
-        <div
-          id="shopping-button"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <iconify-icon
-            icon="ep:cellphone"
-            style="color: #626262"
-            width="20"
-          ></iconify-icon>
-          <small>Phones</small>
-        </div>
-        <div
-          id="shopping-button"
-          class="d-flex flex-column align-items-center justify-content-center"
-        >
-          <iconify-icon
-            icon="grommet-icons:tag"
-            style="color: #626262"
-            width="20"
-          ></iconify-icon>
-          <small>All deals</small>
-        </div>
-      </div>
-
+    
       <div id="shopping-line" class="align-items-center justify-content-around">
         <b
           style="font-size: 13px"
@@ -267,7 +208,7 @@
   <h3  id="thetotal" style="font-size: 18px; margin-left: 30px;">Subtotal</h3>
 </div>
 
-<div class="cart" id="cartContainer" style="height: fit-content;">
+<div class="cart" id="cartContainer" >
     
 
    <div class="cover">
@@ -276,17 +217,17 @@
         <button  onclick="seeAllItems()" style="padding: 2px 5px; color: rgb(237,1,127); border: 1px solid rgb(237,1,127); border-radius: 4px; cursor: pointer;"> <iconify-icon icon="basil:arrow-left-solid" style="color: rgb(237,1,127);" width="30"></iconify-icon> Continue Shopping </button>
     </div>
 
-    <div class="cart-flex">
+    <div class="cart-flex ">
 
     <div class="product" style="height: fit-content;">
 
 
   <table>
         <thead id="t-head">
-            <th style="width: 55%; background-color: blue;">Item details</th>
-            <th style="text-align: center;">Quantity</th>
-            <th>Item price</th>
-            <th style="text-align: end;">Action</th>
+            <th class="ps-2"   style="width: 55%;">Details</th>
+            <th  style="text-align: center; " >Quantity</th>
+            <th> Price</th>
+            <th class="pe-2"  style="text-align: end; ">Action</th>
         </thead>
             
     <tbody id="tBody">
@@ -344,8 +285,8 @@
   
             <hr>
   
-            <form id="paymentForm" style="display: flex; justify-content: center;" class="div">
-             <button type="submit" id="paymentForm">Continue to Checkout</button>
+            <form class="paymentForm" style="display: flex; justify-content: center;" class="div">
+             <button type="submit" class="paymentForm rounded text-light ps-5 pe-5 pt-2 pb-2 border-0" style="background-color: #32b27a;" >Continue to Checkout</button>
             </form>
   
             <hr>
@@ -353,15 +294,15 @@
             
             <div class="div">
               <h6 style="font-size: 10px;">We accept:</h6>
-              <img style="width: 40px;" src="Images/card-removebg-preview (1).png" alt="">
-              <img style="height: 20px;"  src="Images/Visa-Logo-2006.png" alt="">
-              <img style="height: 12px;"  src="Images/Verve_Image.png" alt="">
-              <img style="width: 80px;"  src="Images/KongaPay-removebg-preview.png" alt="">
+              <img style="width: 40px;" src="images/card-removebg-preview (1).png" alt="">
+              <img style="height: 20px;"  src="images/Visa-Logo-2006.png" alt="">
+              <img style="height: 12px;"  src="images/Verve_Image.png" alt="">
+              <img style="width: 80px;"  src="images/KongaPay-removebg-preview.png" alt="">
             </div>
   
   
             <div class="biv">
-              <img style="width: 20px;" src="Images/2761118.png" alt="">
+              <img style="width: 20px;" src="images/2761118.png" alt="">
               <h6 style="font-size: 10px; margin-top: 10px;">Transactions are 100% Safe and Secure</h6>
              </div>
           </div>
@@ -378,21 +319,21 @@
         <div style="display: flex; justify-content: center;" class="p">
           <div style="width: fit-content;" class="fiv">
             <h6 style="font-size: 10px;">We accept</h6>
-            <img style="width: 35px;" src="Images/card-removebg-preview (1).png" alt="">
-            <img style="height: 18px;"  src="Images/Visa-Logo-2006.png" alt="">
-            <img style="height: 10px;"  src="Images/Verve_Image.png" alt="">
-            <img style="width: 75px;"  src="Images/KongaPay-removebg-preview.png" alt="">
+            <img style="width: 35px;" src="images/card-removebg-preview (1).png" alt="">
+            <img style="height: 18px;"  src="images/Visa-Logo-2006.png" alt="">
+            <img style="height: 10px;"  src="images/Verve_Image.png" alt="">
+            <img style="width: 75px;"  src="images/KongaPay-removebg-preview.png" alt="">
           </div>
         </div>
 
         <div style="display: flex; justify-content: center;" class="biv">
-          <img style="width: 20px;" src="Images/2761118.png" alt="">
+          <img style="width: 20px;" src="images/2761118.png" alt="">
           <h6 style="font-size: 13px; font-weight: 400; margin-top: 10px;">100% Safe and Secure</h6>
          </div>
 
-         <div style="display: flex; justify-content: center;" class="div">
-          <button>Continue to Checkout</button>
-         </div>
+         <form class="paymentForm form" style=" justify-content: center;" >
+          <button type="submit" class="secform rounded text-light ps-5 pe-5 pt-2 pb-2 border-0" style="background-color: #32b27a;" class="paymentForm">Continue to Checkout</button>
+         </form>
        </div>
 
       </div>
@@ -408,9 +349,9 @@
 
     
 </div>
-<div class="tiv">
-  <button>Continue to Checkout</button>
- </div>
+<form class="tiv paymentForm" >
+  <button type="submit" class="paymentForm">Continue to Checkout</button>
+</form>
 
 
 

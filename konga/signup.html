@@ -66,7 +66,7 @@
                             
                         </label>
 
-                        <button id="loginButton" onclick="createAccount()">Create An Account</button>
+                        <button id="loginButton" onclick="createAccount()">Create an account</button>
                         
                         <div class="pink">
                         <span>By signing up you accept our 
@@ -169,13 +169,14 @@ window.location.href = 'login.html'
 
 }).catch((error) => {
   alert(error)
-  loginButton.innerHTML = 'Login'
+  loginButton.innerHTML = 'Create an account'
 });  
   })
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
-    loginButton.innerHTML = 'Login'
+    alert(errorMessage)
+    loginButton.innerHTML = 'Create an account'
   });
 }
 

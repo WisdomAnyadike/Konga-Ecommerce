@@ -54,7 +54,7 @@
           id="nav-buttons"
           class="mb-1 d-flex align-items-center justify-content-around"
         >
-          <button class="d-flex align-items-center">
+          <button onclick="goHome()" class="d-flex align-items-center">
             <iconify-icon
               icon="mingcute:arrow-left-line"
               style="color: #000"
@@ -80,7 +80,8 @@
               width="22"
             ></iconify-icon>
           </button>
-          <button class="d-flex align-items-center">
+          <button onclick="goToCart()" class="d-flex align-items-center position-relative">
+            <b class="position-fixed theCart bg-success text-light d-flex align-items-center justify-content-center"  style="width: 17px; height: 17px; top:0; right:2px; font-size: 12px; border-radius: 50%;"> </b>
             <iconify-icon
               icon="ri:shopping-cart-line"
               style="color: #000"
@@ -121,7 +122,7 @@
             /><button>
               <iconify-icon icon="ion:search" width="20"></iconify-icon>
             </button>
-            <div id="drop" class="d-flex rounded align-items-start justify-content-start flex-column bg-light shadow" style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
+            <div id="drop" class=" rounded align-items-start justify-content-start flex-column bg-light shadow" style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
     
             </div>
           </div>
@@ -252,18 +253,18 @@
       </div>
 
 
-      <div id="homeButtons" class="d-flex align-items-center w-100"> <button onclick="goHome()" class="home ms-5 me-2">Home > </button> <button style="font-weight: 600; color: #94004f;" onclick="seeAllItems()">See all items</button>  </div>
+      <div id="homeButtons" class="d-flex justify-content-start align-items-center w-100 ps-3"> <button onclick="goHome()" class="home">Home > </button> <button class="ms-2" style="font-weight: 600; color: #94004f;" onclick="seeAllItems()">See all items</button>  </div>
 
-      <div id="amazingDeals" class="align-items-start  d-flex flex-column ">
-        <h1 class="mt-2">Amazing Deals Online </h1>
+      <div id="amazingDeals" class=" d-flex justify-content-start align-items-start flex-column ">
+        <h1 class="">Amazing Deals Online </h1>
 
       </div>
 
 
       <div id="seeAll" class="align-items-center justify-content-start  d-flex flex-column ">
-        <img width="95%" height="300px" class="rounded" style=" object-fit: contain;" src="images/Stove.jpg_H1ZMGqhNa.webp" alt="">
+        <img id="seeallimage" width="95%" height="300px" class="rounded" style=" object-fit: contain;" src="images/Stove.jpg_H1ZMGqhNa.webp" alt="">
 
-        <div id="allItems" class="flex-row d-flex align-items-center w-100 justify-content-around flex-wrap mt-2 mb-2">
+        <div id="allItems" class="flex-row d-flex align-items-center w-100 justify-content-around flex-wrap ">
 
         </div>
 

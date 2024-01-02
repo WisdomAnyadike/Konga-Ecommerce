@@ -14,6 +14,11 @@
   z-index: 5;
 }
 
+.eachprice{
+  margin-left: 20px;
+  margin-right: 20px;
+ 
+}
 #navbar-2 {
   display: none;
   color: rgba(255, 255, 255, 0.514);
@@ -227,6 +232,10 @@
   background-color: rgba(8, 8, 8, 0.94);
   border-radius: 50%;
 }
+.form{
+  display: flex;
+  margin-bottom:50px ;
+}
 
 #shopping-buttons {
   display: flex;
@@ -324,6 +333,12 @@
   margin-bottom: 10px;
 }
 
+#categories{
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 .deal1:hover,
 .deal2:hover,
 .deal3:hover,
@@ -343,6 +358,23 @@
 #kid-banner,
 #banner {
   width: 95%;
+}
+
+.eachproduct{
+ width:250px; 
+  height:fit-content; 
+  min-height:350px; 
+  margin:auto; 
+  text-align:center;
+
+}
+
+.eachcart{
+font-size:14px;
+height:30px; 
+width:250px;
+ border:1px solid #f855a6;
+  color:#f855a6;
 }
 
 #banner {
@@ -369,6 +401,15 @@
   background-color: #32b27b00;
 }
 
+
+.itemdivchild1{
+  margin-top:50px;  
+  width:400px;
+}
+
+.itemdivchild2{
+  width: 60%;
+}
 .home:hover {
   font-weight: 600;
   color: #94004f;
@@ -674,11 +715,7 @@
   }
 }
 
-@media (max-width: 768px) {
-  .footer {
-    display: none;
-  }
-}
+
 
 @media (max-width: 1190px) {
   #nav {
@@ -724,6 +761,22 @@
     margin-top: 115px;
   }
 }
+
+@media (max-width: 960px) {
+  .footer {
+    display: none;
+  }
+
+  .itemdiv{
+flex-wrap:wrap ;
+  }
+
+  .itemdivchild2{
+    width: 100%;
+      }
+  
+}
+
 @media (max-width: 940px) {
   #shopping-button2 small {
     font-size: 10px;
@@ -758,6 +811,15 @@
 }
 
 @media (max-width: 767px) {
+
+  .form{
+    display: none;
+  }
+
+
+  #seeallimage{
+    display: none;
+  }
   #homeButtons {
     margin-top: 15px;
   }
@@ -858,6 +920,34 @@
 }
 
 @media (max-width: 576px) {
+  .eachprice{
+margin: auto;
+padding: 7px;
+  }
+
+  .eachproduct{
+width: 140px;
+min-height: 200px;
+  }
+
+  .eachdiscount{
+    display: none;
+  }
+
+  .eachcart{
+    width: 140px;
+  }
+  #kid-banner .kid{
+    display: none;
+  }
+
+  #navbar-2{
+    width: 100%;
+  }
+  .itemdivchild1{
+    width: 300px;
+  }
+
   #shopping-button small {
     font-size: 10px;
   }

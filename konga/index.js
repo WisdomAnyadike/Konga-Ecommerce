@@ -30,53 +30,50 @@ console.log(todaysDeals);
 let dealsContent = document.getElementById("deals-content");
 
 function displaySlide(name, arr, flex, num, type) {
-  arr.forEach((deal, i) => {
+  arr.forEach(({id,price,title,discountPercentage , images}, i) => {
     name.innerHTML += `<button id="${
-      deal.id
+     id
     }" onclick="showProduct(event)" value='${
-      deal.price
+     price
     }'  class="border-0 ${flex} rounded deal${num} d-flex  justify-content-around">
          
-    <img width="100px" id="${deal.id}" value='${
-      deal.price
-    }' height="110px" style="border-radius:10px;" src='${
-      deal.images[0]
-    }' alt="">
+    <img width="100px" id="${id}" value='${
+     price
+    }' height="110px" style="border-radius:10px;" src='${images[Math.floor(Math.random() * 4)]}' alt="">
 
 
- <p value='${deal.price}' id="${
-      deal.id
+ <p value='${price}' id="${
+     id
     }"  class="${type}text d-flex align-items-start justify-content-start flex-column">
   <span class="mb-2 mt-3" >
-${deal.title}
+${title}
   </span>
 
-  <s id="${deal.id}" value='${
-      deal.price
+  <s id="${id}" value='${
+     price
     }' style="font-size:12px; font-weight:300;">N${(
-      deal.price +
-      deal.price * (deal.discountPercentage / 100)
+     price + price * (discountPercentage / 100)
     ).toFixed(2)} </s>
  
-  <b id="${deal.id}" value='${
-      deal.price
+  <b id="${id}" value='${
+     price
     }' class="d-flex mb-2 align-items-center justify-content-between w-100 "style="font-size:12px;> 
-  <legend style="font-size:10px;">  N${deal.price}.00  </legend> 
+  <legend style="font-size:10px;">  N${price}.00  </legend> 
      
- <small id="${deal.id}" value='${
-      deal.price
+ <small id="${id}" value='${
+     price
     }' class="danger" style="font-size:8px; color:#ff706d;"> -${
-      deal.discountPercentage
+     discountPercentage
     }%</small>
   </b>
 
  
 
-  <b id="${deal.id}" value='${
-      deal.price
+  <b id="${id}" value='${
+     price
     }' style="font-size:11px; color:#32b27a;"> You saved N${(
-      deal.price *
-      (deal.discountPercentage / 100)
+     price *
+      (discountPercentage / 100)
     ).toFixed(2)} </b>
 
 
@@ -88,13 +85,16 @@ ${deal.title}
 
 displaySlide(dealsContent, todaysDeals, "flex-row", 1, "deals");
 
+
 let sponsoredArr = fetchedData.slice(23, 29);
 console.log(sponsoredArr);
 let sponsoredContent = document.getElementById("sponsored-content");
+
 displaySlide(sponsoredContent, sponsoredArr, "flex-column", 2, "sponsored");
 
 let recommendedArr = fetchedData.slice(20, nums[randomNum]);
 let recommendedContent = document.getElementById("recommended-content");
+
 displaySlide(recommendedContent, recommendedArr, "flex-row", 3, "recommended");
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,389 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  #navbar,
-  #navbar-2 {
-    width: 100%;
-    height: 40px;
-    display: flex;
-    position: fixed;
-    top: 0;
-    z-index: 5;
-  }
-  
-  #navbar-2 {
-    display: none;
-    color: rgba(255, 255, 255, 0.514);
-  }
-  
-  #nav {
-    width: 65%;
-  }
-  
-  #nav-buttons,
-  #add-to-cart {
-    width: 120px;
-  }
-  #add-to-cart {
-    width: 70px;
-  }
-  #navbar-2 button {
-    border: none;
-    background-color: rgba(240, 248, 255, 0);
-  }
-  
-  #search-bar button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    width: 130px;
-    padding: 5px;
-    border: none;
-    color: white;
-    background-color: rgba(255, 255, 255, 0);
-    height: 60px;
-  }
-  
-  #search-bar2 button:hover,
-  #search-bar #search-bar2 #searcher:hover {
-    background-color: white;
-    color: #ed007f;
-  }
-  
-  #search-bar small {
-    font-size: 13px;
-  }
-  
-  #search {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 500px;
-  }
-  
-  #search-bar {
-    width: 100%;
-    height: 60px;
-    background-color: #ed007f;
-    position: fixed;
-    top: 40px;
-    z-index: 5;
-  }
-  
-  #search-bar2 {
-    width: 90%;
-  }
-  
-  #search input {
-    width: 90%;
-    height: 30px;
-    border-radius: 2px 0px 0px 2px;
-    border: none;
-    outline: none;
-    font-size: 13px;
-    padding-left: 10px;
-  }
-  
-  #search button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10%;
-    height: 100%;
-    background-color: #fba100;
-    border-radius: 0px 2px 2px 0px;
-  }
-  
-  #search-bar2 #mycart {
-    width: 130px;
-    height: 35px;
-    background-color: #32b27a;
-    font-size: 13px;
-  }
-  
-  #search-bar2 #konga:hover {
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-  }
-  
-  #search-bar2 #mycart small {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    width: 20px;
-    height: 24px;
-    background-color: white;
-    border-radius: 3px;
-    margin-left: 4px;
-    font-weight: 700;
-  }
-  
-  #search-bar2 #mycart:hover {
-    color: white;
-    background-color: #299063;
-  }
-  
-  #search-bar #search-bar2 #searcher {
-    height: 60px;
-    width: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-  #search-dropdown {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: absolute;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.296);
-    width: 200px;
-    height: 150px;
-    text-align: left;
-    display: none;
-    top: 75px;
-  }
-  #search iconify-icon {
-    color: white;
-  }
-  
-  #search-parent {
-    position: relative;
-  }
-  
-  #search-parent:hover #search-dropdown {
-    display: flex;
-  }
-  
-  #shopping-line {
-    display: flex;
-    background-color: #94004f;
-    height: 40px;
-    color: white;
-    font-size: 14px;
-    position: fixed;
-    top: 100px;
-    width: 100%;
-    z-index: 3;
-  }
-  
-  #shopping-line small,
-  #shopping-line b {
-    width: fit-content;
-  }
-  
-  #shopping-line small:hover,
-  #shopping-line b:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  #display-sales {
-    height: 400px;
-    background-color: #efefef;
-  }
-  
-  #display-one,
-  #display-two {
-    border-radius: 10px;
-    background-color: white;
-    height: 370px;
-    width: 65%;
-  }
-  
-  #display-two {
-    background-color: white;
-  
-    width: 30%;
-  }
-  
-  #display-square {
-    width: 175px;
-    height: 170px;
-    background-color: #94004f;
-    border-radius: 10px;
-  }
-  
-  #display-square img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-  }
-  
-  .carousel-item img {
-    border-radius: 10px;
-    height: 370px;
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: rgba(8, 8, 8, 0.94);
-    border-radius: 50%;
-  }
-  
-  #shopping-buttons {
-    display: flex;
-    height: 50px;
-    background-color: whitesmoke;
-  }
-  #shopping-button {
-    padding-top: 10px;
-    width: 20%;
-    height: 100%;
-  }
-  
-  #shopping-button small {
-    color: #626262;
-  }
-  
-  #shopping-buttons2 {
-    display: flex;
-    height: 80px;
-  }
-  #shopping-button2 {
-    width: 14%;
-    height: 75%;
-    border-radius: 5px;
-    color: #626262;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.113);
-  }
-  
-  #todays-deals {
-    width: 98%;
-    height: fit-content;
-  
-    border-radius: 10px 10px 0 0;
-  }
-  
-  ::-webkit-scrollbar{
-    display: none;
-  }
-  
-  #deals-header {
-      background-color: #94004f;
-    color: white;
-    height: 15%;
-    border-radius: 10px 10px 0 0;
-  }
-  
-  #deals-content , #recommended-content {
-    height: fit-content;
-    background-color: white;
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;  
-  }
-  
-  .seebutton {
-    background-color: rgba(245, 245, 245, 0);
-    color: white;
-  }
-  
-  .deal1  , .deal2 ,.deal3{
-    margin-top: 10px;
-    margin-bottom: 30px;
-    width: 400px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.068);
-    height: 130px;
-    transition: all 1s;
-    background-color: white;
-    align-items: center;
-  }
-  .data1{
-    transition: all 1s;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.068);
-  }
-  
-  .deal2{
-      width: 250px;
-      margin: 10px;
-      height: 320px;
-      text-align: left;   
-  }
-  
-  #sponsors{
-      width: 98%;
-    }
-  
-  #sponsors img{
-      margin: auto;
-      margin-bottom: 10px;
-  }
-  
-  .deal1:hover , .deal2:hover , .deal3:hover , .data1:hover{
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.462);
-  }
-  
-  .dealtext {
-    width: 50%;
-    height: 100px;
-  }
-  
-  #categories{
-      width: 95%;
-  }
-  
-  #kid-banner , #banner{
-    width: 95%;
-  }
-  
-  
-  #banner{
-  
-    margin-top: 50px;
-  }
-  #kid-banner img{
-    object-fit: contain;
-  }
-  
-  #banner img {
-    object-fit: cover;
-    }
-  
-    #text{
-      width: 95%;
-    }
-  
-    #homeButtons{
-      margin-top: 150px;
-      font-size: 12px;
-  
-    }
-  #homeButtons button {
-    border: none;
-    background-color: #32b27b00;
-  }
-  
-  .home:hover{
-  font-weight: 600;
-  color: #94004f;
-  }
-  
-  #amazingDeals {
-    width: 95%;
-  }
-  
-  #seeAll{
-    width: 98%;
-    background-color: whitesmoke;
-  }
-  
-  
-   .footer{
-       width: 100%;
-       height: fit-content;
-   }
+
    .top{
        width: 100%;
        height: 13vh;
@@ -685,7 +300,7 @@
          }
      }
     
-     @media (max-width : 768px){
+     @media (max-width : 960px){
        .footer{
            display: none;
        }
@@ -756,7 +371,9 @@
     }
   }
   @media (min-width: 767px) {
-  
+    .form{
+      display: none;
+    }
   
     #shopping-buttons {
       display: none;
@@ -875,6 +492,16 @@
   
   
   @media (max-width: 576px) {
+    .itempieces , .itemtime{
+      font-size: 6px;
+    }
+    .itempieces{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+      justify-content: space-around;
+    }
     #shopping-button small {
       font-size: 10px;
     }
@@ -906,14 +533,17 @@
   
   .cart{
     width: 100%;
-    height: 120vh;
+    height: fit-content;
+    align-items: center;
     background-color: rgb(242,242,242);
     display: flex;
     justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   .shopping{
       width: 100%;
-      height: 20vh;
+      height: 15vh;
       background-color: white;
   }
   .cart button{
@@ -1030,7 +660,7 @@
 .pay2{
     width: 100%;
     height: fit-content;
-    background-color: red;
+   
     margin-top: 20px;
     display: none;
     justify-content: center;
@@ -1039,7 +669,7 @@
 }
 .m{
     width: 60%;
-    background-color: #94004f;
+ 
 }
 .tiv{
     width: 100%;
@@ -1073,6 +703,51 @@
     height: 150px;
 }
 
+.id, .q, .ip, .a{
+    width: 50%;
+    height: 20vh;
+    background-color: white;
+  }
+  .q{
+    width: 20%;
+    background-color: antiquewhite;
+  }
+  .ip{
+    width: 20%;
+    background-color: #32b27a;
+  }
+  .a{
+    width: 12%;
+    background-color: #94004f;
+  }
+  .head{
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(230,230,230);
+    color: black;
+    display: flex;
+    justify-content: center;
+    
+  }
+  .head p{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+
+
+
+
+  table{
+    width: 100%;
+    background-color: #e6e6e6;
+}
+#t-head{
+width: 100%;
+height: 50px;
+background-color:#e6e6e6;
+}
 
 
 @media (max-width: 992px) {
@@ -1113,6 +788,10 @@
 
 
   @media (max-width: 767px) {
+
+    .cart{
+      font-size: 12px;
+    }
     #search-bar{
         display: none;
     }
@@ -1140,47 +819,4 @@
   
 
 
-  .id, .q, .ip, .a{
-    width: 50%;
-    height: 20vh;
-    background-color: white;
-  }
-  .q{
-    width: 20%;
-    background-color: antiquewhite;
-  }
-  .ip{
-    width: 20%;
-    background-color: #32b27a;
-  }
-  .a{
-    width: 12%;
-    background-color: #94004f;
-  }
-  .head{
-    width: 100%;
-    height: fit-content;
-    background-color: rgb(230,230,230);
-    color: black;
-    display: flex;
-    justify-content: center;
-    
-  }
-  .head p{
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 15px;
-  }
-
-
-
-
-
-  table{
-    width: 100%;
-    background-color: blue;
-}
-#t-head{
-width: 100%;
-background-color: aqua;
-}
+  

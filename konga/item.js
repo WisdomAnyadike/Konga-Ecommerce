@@ -13,9 +13,9 @@ let itemName = document.getElementById("itemName");
 soldItem.innerHTML = `${theObj.category}`;
 
 theClickedItem.innerHTML = `
-<div class="d-flex align-items-start justify-content-around w-100" >
+<div class="d-flex itemdiv align-items-start justify-content-around w-100" >
 
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel h-75 " style="margin-top:50px;  width:400px;">
+<div id="carouselExampleAutoplaying" class="carousel slide itemdivchild1" data-bs-ride="carousel h-75 ">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="${theObj.images[0]}" class="d-block w-100" alt="...">
@@ -43,7 +43,7 @@ theClickedItem.innerHTML = `
   </button>
 </div>
 
-<div class=" mt-5 d-flex align-items-start justify-content-start flex-column" style="width:60%; height:500px; background-color:white;">
+<div class=" mt-5 itemdivchild2 d-flex align-items-start justify-content-start flex-column" style=" height:500px; background-color:white;">
 <h4 class="ms-3 mt-3">${theObj.description}</h4>
 <small class=" ms-3 mt-1" >Brand: ${theObj.brand} </small>
 <small class="ms-3 " >Rating: ${theObj.rating}/5 </small>
@@ -68,7 +68,7 @@ theClickedItem.innerHTML = `
   <small id="amountLeft" class="ms-3 " >Stock: </small>
 
 
-  <b onclick="addToC(event)" id="${theObj.id}" value='${theObj.price}'  style="font-size:14px;height:30px; width:250px; border:1px solid #f855a6; color:#f855a6;" class="d-flex align-items-center ms-3 mt-5 justify-content-center "> Buy Now </b> 
+  <b onclick="addToC(event)" id="${theObj.id}" value='${theObj.price}'  style="font-size:14px;height:40px; width:250px; border:1px solid #f855a6; color:#f855a6;" class="d-flex align-items-center ms-3 mt-5 justify-content-center "> Buy Now </b> 
 
 </div>
 
@@ -101,7 +101,7 @@ shopBar.innerHTML = `
 <button class="ms-1 bg-dark text-light rounded-circle ps-2 pe-2" onclick="crease(quantityNo++)"> + </button> </p>
   </legend> 
 
-  <b onclick="addToC(event)" id="${theObj.id}" value='${theObj.price}'  style="font-size:14px;height:30px; width:200px; color:white;" class="d-flex align-items-center mb-4  h-25 rounded shadow p-3 justify-content-center bg-success border border-success"> Buy Now </b> 
+  <b onclick="addToC(event)" id="${theObj.id}" value='${theObj.price}'  style="font-size:14px; height:45px; width:210px; color:white;" class="d-flex align-items-center mb-4  h-25 rounded shadow p-3 justify-content-center bg-success border border-success"> Buy Now </b> 
 
 `
 
@@ -133,35 +133,49 @@ remainingStock.innerHTML = `Stock left : ${amountLeft}`;
 console.log(cartArray);
 
 function addToC(event) {
-  if (quantityNo <= 0) {
-    return;
-  } else {
-    cart.forEach((c) => {
-      cartNum = Number(cartNum) + Number(quantityNo) ;
-      localStorage.setItem("cartNo", cartNum);
-      c.innerHTML = cartNum;
-      el = event.target;
-      console.log(el.id);
+    el = event.target;
 
-      let foundObj = fetchedData.find((obj) => {
-        return el.id == obj.id;
-      });
+    el.innerHTML = `<div class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>`;
 
-      let item = {
-        itemImage: foundObj.images[0],
-        itemTitle: foundObj.title,
-        itemQuantity: Number(quantityNo),
-       get itemPrice() {
-          return foundObj.price * this.itemQuantity;
-        },
-        itemAmount: foundObj.price 
-      };
+  setTimeout(()=> {
+    if (quantityNo <= 0) {
+        alert('item quantity should be one and above')
+        el.innerHTML = 'Buy Now'
+        return;
+      } else {
+        
+          cartNum = Number(cartNum) + Number(quantityNo) ;
+          localStorage.setItem("cartNo", cartNum);
+          displayCartNumber() 
+        
+          el.innerHTML = 'Buy Now'
+          let foundObj = fetchedData.find((obj) => {
+            return el.id == obj.id;
+          });
+    
+          let item = {
+            itemImage: foundObj.images[0],
+            itemTitle: foundObj.title,
+            itemQuantity: Number(quantityNo),
+           get itemPrice() {
+              return foundObj.price * this.itemQuantity;
+            },
+            itemAmount: foundObj.price ,
+            itemBrand: foundObj.brand , 
+          };
+    
+          cartArray.push(item);
+          localStorage.setItem("cartArray", JSON.stringify(cartArray));
+        
+    
+          window.location.href = "thecart.html";
+        
+      }
 
-      cartArray.push(item);
-      localStorage.setItem("cartArray", JSON.stringify(cartArray));
-      console.log(cartArray);
-
-      window.location.href = "thecart.html";
-    });
-  }
+  } , 2000)  
+ 
 }

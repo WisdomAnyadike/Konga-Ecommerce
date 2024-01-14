@@ -20,7 +20,7 @@
           <img src="images/konga.png" alt="" />
         </div>
 
-        <div class="form mb-5">
+        <div style="height:450px;" class="form mb-5">
           <div class="login">
             <div class="login-login">
               <h2>Login</h2>
@@ -29,7 +29,7 @@
           </div>
 
           <div class="login">
-            <button style="background-color: rgba(240, 248, 255, 0)" class="login-google" onclick="loginWithGoogle()">
+            <button style="background-color: rgba(240, 248, 255, 0)" class="login-google" >
               <img src="images/download__3_-removebg-preview.png" alt="" />
               <p>Login with Google</p>
             </button>
@@ -52,14 +52,14 @@
           <div id="input">
             <div class="inwrap">
               <label for="email">
-                <h6>Email Address</h6>
+                <h6>Email Admin Address</h6>
                 <input id="email" placeholder="Enter Email Address " type="text" />
               </label>
 
               <label for="password">
                 <h6 class="mt-2">Password</h6>
                 <div id="inputdiv">
-                  <input id="password" class="input2" placeholder="Enter Password" type="password" name="z" />
+                  <input id="password" class="input2" placeholder="Enter Admin Password" type="password" name="z" />
                   <small id="showbutton" onclick="showPassword()" class="me-2"> </small>
                 </div>
               </label>
@@ -68,17 +68,7 @@
             </div>
           </div>
 
-          <div id="account">
-            <div class="div">
-              <h6>Don't have an account?</h6>
-              <button id="account" onclick="goToSignUp()">
-                Create an account
-              </button>
-              <button type="button" id="admin" onclick="goToAdmin()">
-                Login as Admin
-              </button>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>
@@ -106,23 +96,28 @@
 </body>
 
 </html>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyC-hQG2BI6xAGm3kxsiSmex9jT4RNbCNJA",
-    authDomain: "konga-e4afd.firebaseapp.com",
-    projectId: "konga-e4afd",
-    storageBucket: "konga-e4afd.appspot.com",
-    messagingSenderId: "1027263106565",
-    appId: "1:1027263106565:web:f1cabbf6b52ad1f8b3166c",
-  };
+<script >
+   
+    const firebaseConfig = {
+      apiKey: "AIzaSyAfF1QlFFnIu2Vb29Gsvq5lIEei_e4xMDk",
+      authDomain: "konga-admin.firebaseapp.com",
+      projectId: "konga-admin",
+      storageBucket: "konga-admin.appspot.com",
+      messagingSenderId: "256718558547",
+      appId: "1:256718558547:web:b18aa4ed07b12814537da6"
+    };
+  
+
+
 
   const app = firebase.initializeApp(firebaseConfig);
-  var provider = new firebase.auth.GoogleAuthProvider();
+ 
 </script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>
+
 
   let email = document.getElementById("email");
   let password = document.getElementById("password");
@@ -153,63 +148,24 @@
         loginButton.innerHTML = "Login";
         var user = userCredential.user;
 
-        let currentUser = user.email
-        alert("login Successful");
-        localStorage.setItem('currentUser', currentUser)
-
-        cartArray = JSON.parse(localStorage.getItem('cartArray'))
-        cartArray = []
-        localStorage.setItem('cartArray', JSON.stringify(cartArray))
-        cartNum = localStorage.getItem('cartNo')
-        cartNum = 0
-        localStorage.setItem('cartNo', JSON.stringify(cartNum))
-
-
-
-        window.location.href = 'index.html'
+       
+        alert("Admin login Successful");
+      
+        window.location.href = 'admin.html'
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        alert(errorMessage);
+        alert('This page is restricted');
         loginButton.innerHTML = "Login";
       });
   }
 
-  function loginWithGoogle() {
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-        /** @type {firebase.auth.OAuthCredential} */
-        var credential = result.credential;
+ 
 
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        alert("login Successful!");
-        // IdP data available in result.additionalUserInfo.profile.
-        // ...
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        alert(errorMessage);
-        // ...
-      });
-  }
 
-  function goToSignUp() {
-    window.location.href = "signup.html";
-  }
 
   function goToAdmin() {
-  window.location.href = "adminlogin.html";
+  window.location.href = "admin.html";
 }
 </script>

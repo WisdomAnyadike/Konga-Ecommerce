@@ -1,6 +1,5 @@
 let theObj = JSON.parse(localStorage.getItem("foundObj"));
-let shopBar = document.getElementById('shopBar')
-console.log(theObj);
+let shopBar = document.getElementById("shopBar");
 let remainingStock;
 let amountLeft;
 let quantityNo = 0;
@@ -8,7 +7,6 @@ let quantityNo = 0;
 let theClickedItem = document.getElementById("theClickedItem");
 let soldItem = document.getElementById("soldItem");
 let itemName = document.getElementById("itemName");
-
 
 soldItem.innerHTML = `${theObj.category}`;
 
@@ -103,7 +101,7 @@ shopBar.innerHTML = `
 
   <b onclick="addToC(event)" id="${theObj.id}" value='${theObj.price}'  style="font-size:14px; height:45px; width:210px; color:white;" class="d-flex align-items-center mb-4  h-25 rounded shadow p-3 justify-content-center bg-success border border-success"> Buy Now </b> 
 
-`
+`;
 
 itemName.innerHTML = theObj.title;
 
@@ -125,57 +123,61 @@ function crease(no) {
   }
 }
 
-
 crease(quantityNo);
 
 remainingStock.innerHTML = `Stock left : ${amountLeft}`;
 
-console.log(cartArray);
-
 function addToC(event) {
-    el = event.target;
+  el = event.target;
 
-    el.innerHTML = `<div class="text-center">
+  el.innerHTML = `<div class="text-center">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>`;
 
-  setTimeout(()=> {
-    if (quantityNo <= 0) {
-        alert('item quantity should be one and above')
-        el.innerHTML = 'Buy Now'
-        return;
-      } else {
-        
-          cartNum = Number(cartNum) + Number(quantityNo) ;
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var uid = user.uid;
+      currentUser = user;
+
+      setTimeout(() => {
+        if (quantityNo <= 0) {
+          alert("item quantity should be one and above");
+          el.innerHTML = "Buy Now";
+          return;
+        } else {
+          cartNum = Number(cartNum) + Number(quantityNo);
           localStorage.setItem("cartNo", cartNum);
-          displayCartNumber() 
-        
-          el.innerHTML = 'Buy Now'
+          displayCartNumber();
+
+          el.innerHTML = "Buy Now";
           let foundObj = fetchedData.find((obj) => {
             return el.id == obj.id;
           });
-    
+
           let item = {
             itemImage: foundObj.images[0],
             itemTitle: foundObj.title,
             itemQuantity: Number(quantityNo),
-           get itemPrice() {
+            get itemPrice() {
               return foundObj.price * this.itemQuantity;
             },
-            itemAmount: foundObj.price ,
-            itemBrand: foundObj.brand , 
+            itemAmount: foundObj.price,
+            itemBrand: foundObj.brand,
           };
-    
+
           cartArray.push(item);
           localStorage.setItem("cartArray", JSON.stringify(cartArray));
-        
-    
-          window.location.href = "thecart.html";
-        
-      }
 
-  } , 2000)  
- 
+          window.location.href = "thecart.html";
+        }
+      }, 2000);
+    } else {
+      // User is signed out
+      // ...
+      alert("no user is logged in");
+      window.location.href = "login.html";
+    }
+  });
 }

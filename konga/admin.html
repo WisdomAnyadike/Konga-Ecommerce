@@ -3,27 +3,23 @@
 
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="admin.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
     <title>Document</title>
+
 
 </head>
 
 <body>
-
-
     <div id="container" class="d-flex align-items-center justify-content-center flex-column">
-        <div id='shopBar' class="d-flex align-items-center flex-row bg-light shadow justify-content-around"
-            style="font-family: Tahoma, sans-serif; border-bottom:3px solid #94004f;  width:100%; visibility: hidden; height:100px; z-index:10; position:fixed; top:0; ">
-
-        </div>
         <div id="navbar" class="align-items-center justify-content-center bg-light">
             <div id="nav" class="d-flex align-items-center justify-content-around flex-wrap">
-                <img style="width: 85px; height: 20px" src="images/k_travels2.webp" alt="" />
-                <img style="width: 85px; height: 20px" src="images/konga_pay.webp" alt="" />
+                <img style="width: 85px; height: 15px" src="images/k_travels2.webp" alt="" />
+                <img style="width: 85px; height: 15px" src="images/konga_pay.webp" alt="" />
                 <img style="width: 85px; height: 20px" src="images/new_konga_drinks.webp" alt="" />
                 <img style="width: 85px; height: 20px" src="images/konga_health.webp" alt="" />
                 <img style="width: 85px; height: 20px" src="images/k_express2.webp" alt="" />
@@ -34,28 +30,27 @@
 
         <div id="navbar-2" class="align-items-center justify-content-between bg-light">
             <div id="nav-buttons" class="mb-1 d-flex align-items-center justify-content-around">
-                <button onclick="goHome()" class="d-flex align-items-center">
+                <button class="d-flex align-items-center">
                     <iconify-icon icon="mingcute:arrow-left-line" style="color: #000" width="25"></iconify-icon>
                 </button>
                 <button class="d-flex align-items-center">
-                    <img style="width: 85px; height: 20px" src="images/logo-alternate.webp" alt="" />
+                    <img style="width: 75px; height: 20px" src="images/logo-alternate.webp" alt="" />
                 </button>
             </div>
             <div id="add-to-cart" class="mb-2 d-flex align-items-center justify-content-around">
                 <button class="d-flex align-items-center">
                     <iconify-icon icon="bi:shop" style="color: #000" width="22"></iconify-icon>
                 </button>
-                <button onclick="goToCart()" class="d-flex align-items-center position-relative">
-                    <b class="position-fixed theCart bg-success text-light d-flex align-items-center justify-content-center"  style="width: 17px; height: 17px; top:0; right:2px; font-size: 12px; border-radius: 50%;"> </b>
+                <button class="d-flex align-items-center">
                     <iconify-icon icon="ri:shopping-cart-line" style="color: #000" width="25"></iconify-icon>
                 </button>
             </div>
         </div>
 
-        <div id="search-bar" class="d-flex align-items-center justify-content-center">
+        <div id="search-bar">
             <div id="search-bar2" class="d-flex align-items-center justify-content-around" class="button">
                 <button class="button" id="konga">
-                    <img style="width: 110px; height: 45px" src="images/62f8a0d88e07573b4d46735aa24f3f04.png" alt="" />
+                    <img style="width: 110px; height: 35px" src="images/62f8a0d88e07573b4d46735aa24f3f04.png" alt="" />
                 </button>
                 <button class="button">
                     <small>Store Locator</small>
@@ -64,16 +59,10 @@
                     <small>Sell on konga</small>
                 </button>
 
-                <div id="search" style="position:relative;">
-                    <input class="searcher" type="search"
-                        placeholder="Search for products , brands and categories ..." /><button>
+                <div id="search">
+                    <input type="search" placeholder="Search for products , brands and categories ..." /><button>
                         <iconify-icon icon="ion:search" width="20"></iconify-icon>
                     </button>
-                    <div id="drop"
-                        class="rounded align-items-start justify-content-start flex-column bg-light shadow"
-                        style="position:absolute; z-index:12; top:40px; left:0; width:500px; height:500px; overflow-y:scroll;">
-
-                    </div>
                 </div>
 
                 <div id="search-parent" class="button">
@@ -90,19 +79,22 @@
                     </div>
                 </div>
 
-                <button onclick="goToLogin()" class="button" style="font-size: 13px">Login/Signup</button>
+                <button class="button" style="font-size: 13px">Login/Signup</button>
 
-                <button onclick="goToCart()" class="button" id="mycart">
-                    <p class="mt-3 d-flex align-items-center justify-content-center">
-                        <iconify-icon icon="material-symbols:shopping-cart-outline-rounded" style="color: white"
-                            width="20"></iconify-icon>
-                        My cart <small class="theCart"> 0 </small>
-                    </p>
-                </button>
+                <!-- <button class="button" id="mycart">
+            <p class="mt-3 d-flex align-items-center justify-content-center">
+              <iconify-icon
+                icon="material-symbols:shopping-cart-outline-rounded"
+                style="color: white"
+                width="20"
+              ></iconify-icon>
+              My cart <small class="theCart"> 0 </small>
+            </p>
+          </button> -->
             </div>
         </div>
 
-        <div id="shopping-buttons" class="w-100 align-items-center justify-content-around">
+        <div id="shopping-buttons">
             <div id="shopping-button" class="d-flex flex-column align-items-center justify-content-center">
                 <iconify-icon icon="system-uicons:circle-menu" style="color: #626262" width="20"></iconify-icon>
                 <small>Browse All</small>
@@ -150,28 +142,271 @@
                 Other Categories</small>
         </div>
 
-
-        <div id="homeButtons" class="d-flex align-items-center justify-content-start w-100 ps-2"> <button onclick="goHome()"
-                class="home ">Home > </button> <button class="ms-2" style="font-weight: 600; color: #94004f;"
-                onclick="seeAllItems()">See all items > </button> <button class="ms-2"
-                style="font-weight: 600; color: #94004f;" id="soldItem"> </button> </div>
-
-        <div id="oneItem" class="align-items-start w-100 ps-2  d-flex flex-column ">
-            <h1 id="itemName" class="mt-2"> </h1>
+        <div class="g">
 
         </div>
 
 
-        <div id="seeAll" class="align-items-center justify-content-start d-flex flex-column ">
+        <div class="shopping">
+            <div class="but">
+                <button style="display: flex; justify-content: center; align-items: center;" onclick="goHome()">Home
+                    <iconify-icon icon="iconamoon:arrow-right-2" style="color: black;"
+                        width="15"></iconify-icon></button>
+
+            </div>
+            <h1>ADMIN PAGE</h1>
+        </div>
 
 
-            <div id="theClickedItem"
-                class="flex-row d-flex align-items-center w-100 justify-content-around flex-wrap mt-2 mb-2">
+        <main id="main">
+
+            <div class="admin-wrap">
+
+                <section>
+                    <label for="cars">CATEGORY:</label>
+                    <select id="category" name="cars">
+                        <option value="nil">Choose Category</option>
+                        <option value="laptops">Computers and Accessories</option>
+                        <option value="smartphones">Phones and Tablets</option>
+                        <option value="home-decoration">Electronics</option>
+                        <option value="fragrances">Konga Fashion & Scents </option>
+                        <option value="skincare">Konga Skincare</option>
+                        <option value="groceries">Home and Kitchen</option>
+                        <option value="groceries">Groceries</option>
+
+
+                    </select><br>
+
+                    <div id="flex">
+                        <div class="v"> <label for="">BRAND</label> <br>
+                            <input id="forbrand" type="text"> <br>
+                        </div>
+
+
+
+
+                        <div class="v">
+                            <label for="">TITLE</label> <br>
+                            <input id="fortitle" type="text">
+                        </div>
+                    </div>
+
+                    <!-- <h6>rating</h6> -->
+
+                    <div id="flex">
+
+                        <div class="v">
+                            <label for="">PRICE</label> <br>
+                            <input id="forprice" type="text"> <br>
+                        </div>
+
+                        <div class="v">
+                            <label for="">DISCOUNT PERCENTAGE</label> <br>
+                            <input id="fordiscount" type="text">
+                        </div>
+
+
+                    </div>
+
+                    <div id="flez">
+                        <div class="z">
+                            <label for="">STOCK</label> <br>
+                            <input id="forstock" type="number"> <br>
+                        </div>
+
+                        <div class="z">
+                            <label for=""> THUMBNAIL </label> <br>
+                            <input id="forthumbnail" type="text">
+                        </div>
+
+                        <div class="z">
+                            <label for="">RATING</label> <br>
+                            <input id="forrating" type="text">
+                        </div>
+                    </div>
+
+
+                    <div class="n">
+                        <label for="">DESCRIPTION</label> <br>
+                        <textarea id="fordescription"></textarea>
+                    </div>
+
+
+                    <div>
+                        <label for="">IMAGES</label>
+                        <main class="d-flex align-items-center justify-content-start">
+                            <input type="file" id="myFile" onchange="pickFile()">
+                            <div id="forImage">
+
+                            </div>
+                        </main>
+
+
+                        <div id="photos">
+
+
+                        </div>
+                        <button class="btn btn-light text-success shadow mt-2" onclick="displayPics(n)"> Show images
+                        </button>
+                        <button class="btn btn-light text-success shadow mt-2"
+                            onclick="displayPics(--n)">Previous</button>
+                        <button class="btn btn-light text-success shadow mt-2" onclick="displayPics(++n)">Next</button>
+
+
+
+                    </div>
+
+
+
+                    <div class="mt-3">
+                        <button class="btn btn-success" onclick="pushProducts()"> Add product </button>
+                    </div>
+
+
+
+                    <!-- <div>
+      <h2>images</h2>
+    </div>
+    
+    
+    <div>
+      <h2>thumbnail</h2>
+    </div> -->
+
+
+
+                </section>
+
 
             </div>
 
+        </main>
+        <script>
+            let brand = document.getElementById('forbrand')
+            let title = document.getElementById('fortitle')
+            let category = document.getElementById('category')
+            let rating = document.getElementById('forrating')
+            let discount = document.getElementById('fordiscount')
+            let price = document.getElementById('forprice')
+            let stock = document.getElementById('forstock')
+            let thumbnail = document.getElementById('forthumbnail')
+            let description = document.getElementById('fordescription')
 
-        </div>
+            let photos = JSON.parse(localStorage.getItem('image')) || []
+            let myFile = document.getElementById('myFile')
+            let photo = document.getElementById('photos')
+            let n = 0
+
+
+            function pickFile() {
+                let file = myFile.files[0]
+                let reader = new FileReader()
+
+                reader.addEventListener("load", (e) => {
+                    let data = e.target.result
+                    if (photos.length < 5) {
+                        let forImage = document.getElementById('forImage')
+                        forImage.innerHTML = `<img src='${data}' >`
+                        photos.push(data)
+                        localStorage.setItem('image', JSON.stringify(photos))
+
+                    } else {
+                        alert('photos cannot exceed 5')
+                        return
+                    }
+
+                })
+
+                if (file) {
+                    reader.readAsDataURL(file)
+                }
+
+
+            }
+
+
+
+
+            function displayPics(i) {
+                let lastIndex = (photos.length - 1)
+                if (photos.length == 0) {
+                    return alert('add photo')
+                } else if (i < 0) {
+                    n = n + 1
+                    return alert('you cant go futher, click next')
+                } else if (i > lastIndex) {
+                    n = n - 1
+                    return alert('you cant go futher, click previous')
+                } else {
+                    photo.innerHTML = `<img src="${photos[i]}" > `
+                }
+            }
+
+
+
+
+
+            let fetchedData = JSON.parse(localStorage.getItem('products'))
+
+            let inputs = document.querySelectorAll('input')
+
+            function pushProducts() {
+
+
+
+                let item = {
+                    brand: brand.value,
+                    category: category.value,
+                    description: description.value,
+                    discountPercentage: Number(discount.value),
+                    id: fetchedData.length + 1,
+                    images: photos,
+                    price: Number(price.value),
+                    rating: rating.value,
+                    stock: stock.value,
+                    thumbnail: thumbnail.value,
+                    title: title.value
+                }
+
+                fetchedData.push(item)
+                localStorage.setItem('products', JSON.stringify(fetchedData))
+                inputs.forEach((input) => input.value = '')
+                photos = []
+                localStorage.setItem('image', JSON.stringify(photos))
+                photo.innerHTML = `<img src="${photos[0]}" > `
+                category.value = 'nil'
+
+            }
+
+
+
+
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="footer">
             <div class="top">
@@ -398,50 +633,32 @@
     };
 
     const app = firebase.initializeApp(firebaseConfig);
-
-
 </script>
 
+<script src="all.js"> </script>
 
-<script src="all.js"></script>
-<script src="item.js"> </script>
 <script>
 
-    let container = document.getElementById('container')
 
     document.addEventListener('DOMContentLoaded', function () {
         let navBar = document.getElementById('nav')
         let searchBar = document.getElementById('search-bar')
         let shoppingLine = document.getElementById('shopping-line')
-        
         window.addEventListener('scroll', () => {
 
 
             let windowHeight = window.scrollY
 
-            if (windowHeight > 100 && windowHeight < 400) {
+            if (windowHeight > 100) {
                 navBar.style.display = 'none'
                 searchBar.style.transition = '1s'
                 shoppingLine.style.transition = '1s'
                 searchBar.style.top = '0px'
                 shoppingLine.style.top = '60px'
-                shopBar.style.visibility = 'hidden'
-                shopBar.style.transform = 'translateY(-150px)'
-            } else if (windowHeight > 400) {
-                shopBar.style.transition = '1s'
-                shopBar.style.transform = 'translateY(0)'
-                shopBar.style.visibility = 'visible'
-
-
-            }
-
-
-            else if (windowHeight < 100) {
+            } else if (windowHeight < 100) {
                 navBar.style.display = 'flex'
                 searchBar.style.top = '40px'
                 shoppingLine.style.top = '100px'
-                shopBar.style.visibility = 'hidden'
-
             }
         })
     })

@@ -116,13 +116,13 @@ function displayPrice() {
 displayPrice();
 
 currentUser = localStorage.getItem("currentUser");
-console.log(currentUser);
+
+let myuser = JSON.parse(localStorage.getItem("myuser"));
 
 const paymentForm = document.querySelectorAll(".paymentForm");
-paymentForm.forEach((p)=> {
+paymentForm.forEach((p) => {
   p.addEventListener("submit", payWithPaystack, false);
-})
-
+});
 
 function payWithPaystack(e) {
   e.preventDefault();
@@ -132,11 +132,10 @@ function payWithPaystack(e) {
   </div>
   </div>`;
   let handler = PaystackPop.setup({
-    key: "pk_test_9a558288d1670a641dafa6f4e899ddb24f2fe749", // Replace with your public key
+    key: "pk_test_9a558288d1670a641dafa6f4e899ddb24f2fe749",
     email: currentUser,
     amount: totalPrice * 100,
-    ref: "" + Math.floor(Math.random() * 1000000000 + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
+    ref: "" + Math.floor(Math.random() * 1000000000 + 1),
     onClose: function () {
       alert("Window closed.");
     },
@@ -157,7 +156,7 @@ function payWithPaystack(e) {
   handler.openIframe();
 }
 
-function increaseQuantity(event, params, i, thebrand) {
+function increaseQuantity(event, params, i) {
   let el = event.target;
 
   let quantity = Number(el.value);
@@ -185,7 +184,7 @@ function increaseQuantity(event, params, i, thebrand) {
     let index = Number(i);
     cartArray.splice(index, 1, item);
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
-    console.log(cartArray);
+
     tbody.innerHTML = "";
     sortCart();
     displayCart();
@@ -211,4 +210,3 @@ function deleteItem(event) {
 
   displayPrice();
 }
-

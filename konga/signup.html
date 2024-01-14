@@ -149,6 +149,7 @@ function goToLogin() {
         let firstName = document.getElementById('firstName')
         let lastName = document.getElementById('lastName')
         let loginButton = document.getElementById('loginButton')
+        let phoneNumber = document.getElementById('phoneNumber')
 function createAccount() {
     loginButton.innerHTML = `<div class="text-center">
   <div class="spinner-border" role="status">
@@ -160,8 +161,10 @@ function createAccount() {
   .then((userCredential) => {
     // Signed in 
     var user = userCredential.user;
+    
     user.updateProfile({
   displayName: firstName.value + '' + lastName.value ,
+
 }).then(() => {
     loginButton.innerHTML = 'Login'
 alert('Account Successfully Created')

@@ -1,7 +1,15 @@
-let fetchedData = JSON.parse(localStorage.getItem("products"));
-console.log(fetchedData);
+ let = fetchedData = JSON.parse(localStorage.getItem("products"));
+  
+
+
+
+ 
+ 
 
 let allItems = document.getElementById("allItems");
+
+
+
 fetchedData.forEach(({id,price,title,discountPercentage,stock,images}, i) => {
   allItems.innerHTML += ` <div class="d-flex mb-4 align-items-center bg-light flex-column" style="width:fit-content; height:fit-content;" > <button id="${id}" value='${price}' onclick="showProduct(event)"   class="border-0 mb-2 eachproduct flex-column align-items-center  rounded data${1} d-flex  justify-content-around">
      
@@ -68,6 +76,8 @@ ${title.toUpperCase()}
 
 `;
 });
+
+
 
 function changeColor(event) {
   el = event.target;

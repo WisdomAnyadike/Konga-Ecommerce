@@ -4,48 +4,44 @@ let cartNum = localStorage.getItem("cartNo") || 0;
 
 let cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
 
-let cartDiv = document.getElementById('cartDiv')
-let categoryText = document.getElementById('cartegoryText')
-let cartAddText = document.getElementById('cartAddText')
+let cartDiv = document.getElementById("cartDiv");
+let categoryText = document.getElementById("cartegoryText");
+let cartAddText = document.getElementById("cartAddText");
 
 function addToCart(event) {
- 
-    ++cartNum;
-    localStorage.setItem("cartNo", cartNum);
-    displayCartNumber() 
-    el = event.target;
-    console.log(el.id);
+  ++cartNum;
+  localStorage.setItem("cartNo", cartNum);
+  displayCartNumber();
+  el = event.target;
 
-    let foundObj = fetchedData.find((obj) => {
-      return el.id == obj.id;
-    });
+  let foundObj = fetchedData.find((obj) => {
+    return el.id == obj.id;
+  });
 
-    let item = {
-      itemImage: foundObj.images[0],
-      itemTitle: foundObj.title,
-      itemQuantity: 1,
-      get itemPrice() {
-        return foundObj.price * this.itemQuantity;
-      },
-      itemAmount: foundObj.price,
-      itemBrand: foundObj.brand , 
-    };
+  let item = {
+    itemImage: foundObj.images[0],
+    itemTitle: foundObj.title,
+    itemQuantity: 1,
+    get itemPrice() {
+      return foundObj.price * this.itemQuantity;
+    },
+    itemAmount: foundObj.price,
+    itemBrand: foundObj.brand,
+  };
 
-    cartAddText.innerHTML = `You've added ${foundObj.title} to Cart`
-    categoryText.innerHTML = `${foundObj.category.toUpperCase()}`
- 
- cartDiv.style.left = '20px'
- cartDiv.style.transition = '0.5s'
- 
- setTimeout(()=> {
-   cartDiv.style.left = '-250px'
-   cartDiv.style.transition = '0.5s'
- }, 3000)
+  cartAddText.innerHTML = `You've added ${foundObj.title} to Cart`;
+  categoryText.innerHTML = `${foundObj.category.toUpperCase()}`;
 
-    cartArray.push(item);
-    localStorage.setItem("cartArray", JSON.stringify(cartArray));
-    console.log(cartArray);
+  cartDiv.style.left = "20px";
+  cartDiv.style.transition = "0.5s";
 
+  setTimeout(() => {
+    cartDiv.style.left = "-250px";
+    cartDiv.style.transition = "0.5s";
+  }, 3000);
+
+  cartArray.push(item);
+  localStorage.setItem("cartArray", JSON.stringify(cartArray));
 }
 
 function displayCartNumber() {
@@ -54,7 +50,7 @@ function displayCartNumber() {
   });
 }
 
-displayCartNumber() 
+displayCartNumber();
 
 function goHome() {
   window.location.href = "index.html";
@@ -65,12 +61,10 @@ function seeAllItems() {
 }
 
 fetchedData = JSON.parse(localStorage.getItem("products"));
-console.log(fetchedData);
 
 function showProduct(event) {
   el = event.target;
-  
-  console.log(el.id);
+
   let foundObj = fetchedData.find((obj) => {
     return el.id == obj.id;
   });
@@ -86,8 +80,7 @@ function goToCart() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var uid = user.uid;
-      console.log(user);
-      currentUser = user;
+      localStorage.setItem("myuser", JSON.stringify(user));
 
       window.location.href = "thecart.html";
 
@@ -102,7 +95,6 @@ function goToCart() {
 }
 
 let search = document.querySelectorAll(".searcher");
-console.log(search);
 
 let dropdownSearch = document.getElementById("drop");
 dropdownSearch.style.display = "none";
